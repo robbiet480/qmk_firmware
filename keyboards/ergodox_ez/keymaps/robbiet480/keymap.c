@@ -217,7 +217,8 @@ enum hid_commands
   hid_rgblight_decrease_hue   = 0x14,
   hid_ergodox_led_on          = 0x15,
   hid_ergodox_led_off         = 0x16,
-  hid_ergodox_led_brightness  = 0x17
+  hid_ergodox_led_brightness  = 0x17,
+  hid_get_wpm = 0x18,
 };
 
 void raw_hid_receive( uint8_t *data, uint8_t length ) {
@@ -396,6 +397,16 @@ void raw_hid_receive( uint8_t *data, uint8_t length ) {
         uprintf("Set right LED #%u to brightness %u\n", data[1], data[2]);
         #endif
         ergodox_right_led_set(data[1], data[2]);
+        break;
+    case hid_get_wpm:
+        #ifdef WPM_ENABLE
+        data[1] = get_current_wpm();
+        #ifdef CONSOLE_ENABLE
+        uprintf("Returning WPM: %u\n", data[1]);
+        #endif
+        #else
+        data[1] = 0xFF;
+        #endif
         break;
     default:
         data[0] = 0xFF;

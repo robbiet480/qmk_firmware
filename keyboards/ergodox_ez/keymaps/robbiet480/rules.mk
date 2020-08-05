@@ -8,3 +8,4 @@ SRC = matrix.c
 RGBLIGHT_ENABLE = no
 RGB_MATRIX_ENABLE = yes
 RAW_ENABLE = yes
+WPM_ENABLE = yes
