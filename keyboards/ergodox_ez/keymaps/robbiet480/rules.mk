@@ -7,5 +7,9 @@ ORYX_ENABLE = no
 SRC = matrix.c
 RGBLIGHT_ENABLE = no
 RGB_MATRIX_ENABLE = yes
-RAW_ENABLE = yes
 WPM_ENABLE = yes
+RGB_HID_ENABLE            = yes
+ifeq ($(strip $(RGB_HID_ENABLE)), yes)
+	RAW_ENABLE = yes
+    SRC += rgb_hid_protocol.c
+endif
