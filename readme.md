@@ -11,6 +11,7 @@ This purpose of this fork is maintain a clean repo that only contains the keyboa
 
 * [Planck](/keyboards/planck/ez)
 * [ErgoDox EZ](/keyboards/ergodox_ez/)
+* [Moonlander Mark I](/keyboards/moonlander)
 
 ## Maintainers
 
